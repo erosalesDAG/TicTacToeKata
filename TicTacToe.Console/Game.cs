@@ -2,8 +2,8 @@ namespace TicTacToe.Console;
 
 public class Game
 {
-    public void PlayTurn(string s)
+    public void PlayTurn(string player)
     {
-        throw new NotImplementedException();
+        throw new InvalidOperationException();
     }
 }
