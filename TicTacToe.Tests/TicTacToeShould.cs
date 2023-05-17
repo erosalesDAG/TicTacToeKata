@@ -1,3 +1,6 @@
+using FluentAssertions;
+using TicTacToe.Console;
+
 namespace TicTacToe.Tests
 {
     public class TicTacToeShould
@@ -8,9 +11,13 @@ namespace TicTacToe.Tests
         }
 
         [Test]
-        public void Test1()
+        public void FailIfFirstPlayerIsO()
         {
-            Assert.Pass();
+            var game = new Game();
+
+            var result = () => game.PlayTurn("O");
+            
+            result.Should().Throw<InvalidOperationException>();
         }
     }
 }
