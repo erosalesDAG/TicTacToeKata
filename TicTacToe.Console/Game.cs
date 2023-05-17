@@ -2,24 +2,25 @@ namespace TicTacToe.Console;
 
 public class Game
 {
-    private string lastPlayer;
+    private Token lastToken;
 
     public Game()
     {
-        lastPlayer = "";
+        lastToken = Token.Empty;
     }
 
-    public void PlayTurn(string player)
+    public void PlayTurn(Token token)
     {
-        if (lastPlayer == "" && player == "O")
+        if (lastToken == Token.Empty && token == Token.O)
         {
             throw new InvalidOperationException();
         }
         
-        if (lastPlayer != "" && lastPlayer == player)
+        if (lastToken != Token.Empty && lastToken == token)
         {
             throw new InvalidOperationException();
         }
-        lastPlayer = player;
+
+        lastToken = token;
     }
 }

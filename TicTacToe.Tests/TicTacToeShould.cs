@@ -16,7 +16,7 @@ namespace TicTacToe.Tests
         {
             var game = new Game();
 
-            var result = () => game.PlayTurn("O");
+            var result = () => game.PlayTurn(Token.O);
             
             result.Should().Throw<InvalidOperationException>();
         }
@@ -25,9 +25,9 @@ namespace TicTacToe.Tests
         public void FailIfPlayerPlaysTwice()
         {
             var game = new Game(); 
-            game.PlayTurn("X");
+            game.PlayTurn(Token.X);
 
-            var result = () => game.PlayTurn("X");
+            var result = () => game.PlayTurn(Token.X);
 
             result.Should().Throw<InvalidOperationException>();
         }
