@@ -1,4 +1,5 @@
 using FluentAssertions;
+using NUnit.Framework.Constraints;
 using TicTacToe.Console;
 
 namespace TicTacToe.Tests
@@ -17,6 +18,17 @@ namespace TicTacToe.Tests
 
             var result = () => game.PlayTurn("O");
             
+            result.Should().Throw<InvalidOperationException>();
+        }
+
+        [Test]
+        public void FailIfPlayerPlaysTwice()
+        {
+            var game = new Game(); 
+            game.PlayTurn("X");
+
+            var result = () => game.PlayTurn("X");
+
             result.Should().Throw<InvalidOperationException>();
         }
     }
