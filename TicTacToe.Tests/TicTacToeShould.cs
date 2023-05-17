@@ -31,5 +31,15 @@ namespace TicTacToe.Tests
 
             result.Should().Throw<InvalidOperationException>();
         }
+
+        [Test]
+        public void CreateEmptyBoard()
+        {
+            var game = new Game();
+
+            var result = new Board();
+
+            result.Should().Be(new Token[3,3]);
+        }
     }
 }

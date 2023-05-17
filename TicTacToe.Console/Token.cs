@@ -2,7 +2,7 @@ namespace TicTacToe.Console;
 
 public enum Token
 {
-    Empty,
+    Empty = 0,
     X,
     O
 }
