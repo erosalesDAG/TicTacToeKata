@@ -6,6 +6,8 @@ namespace TicTacToe.Tests
 {
     public class TicTacToeShould
     {
+        private readonly BoardShould _boardShould = new BoardShould();
+
         [SetUp]
         public void Setup()
         {
@@ -17,29 +19,19 @@ namespace TicTacToe.Tests
             var game = new Game();
 
             var result = () => game.PlayTurn(Token.O);
-            
+
             result.Should().Throw<InvalidOperationException>();
         }
 
         [Test]
         public void FailIfPlayerPlaysTwice()
         {
-            var game = new Game(); 
+            var game = new Game();
             game.PlayTurn(Token.X);
 
             var result = () => game.PlayTurn(Token.X);
 
             result.Should().Throw<InvalidOperationException>();
-        }
-
-        [Test]
-        public void CreateEmptyBoard()
-        {
-            var game = new Game();
-
-            var result = new Board();
-
-            result.Should().Be(new Token[3,3]);
         }
     }
 }
