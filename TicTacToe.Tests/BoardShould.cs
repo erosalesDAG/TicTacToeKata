@@ -10,7 +10,7 @@ public class BoardShould
     {
         var boad = new Board();
 
-        boad.Should().Be(new[,]
+        boad.currentState.Should().BeEquivalentTo(new[,]
         {
             { Token.Empty, Token.Empty, Token.Empty },
             { Token.Empty, Token.Empty, Token.Empty },
