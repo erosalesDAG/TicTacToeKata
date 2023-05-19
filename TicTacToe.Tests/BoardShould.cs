@@ -31,4 +31,12 @@ public class BoardShould
             { Token.Empty, Token.Empty, Token.Empty }
         });
     }
+
+    [Test]
+    public void FailToPlaceTokenOutOfBoundaries()
+    {
+        var board = new Board();
+        var result = () => board.PlaceToken(Token.X,7,5);
+        result.Should().Throw<ArgumentOutOfRangeException>();
+    }
 }
