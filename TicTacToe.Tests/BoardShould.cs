@@ -8,9 +8,9 @@ public class BoardShould
     [Test]
     public void CreateEmptyBoard()
     {
-        var boad = new Board();
+        var result = new Board().currentState;
 
-        boad.currentState.Should().BeEquivalentTo(new[,]
+        result.Should().BeEquivalentTo(new[,]
         {
             { Token.Empty, Token.Empty, Token.Empty },
             { Token.Empty, Token.Empty, Token.Empty },
