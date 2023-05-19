@@ -17,7 +17,7 @@ public class Board
 
     public void PlaceToken(Token token, int i, int i1)
     {
-        throw new NotImplementedException();
+        currentState[i,i1] = token;
     }
 
     public Token[,] GetCurrentState()
