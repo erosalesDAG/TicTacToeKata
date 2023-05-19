@@ -2,7 +2,7 @@ namespace TicTacToe.Console;
 
 public class Board
 {
-    public Token[,] currentState { get; }
+    private Token[,] currentState;
 
     public Board()
     {
@@ -15,8 +15,13 @@ public class Board
         ;
     }
 
-    public object PlaceToken(Token token, int i, int i1)
+    public void PlaceToken(Token token, int i, int i1)
     {
         throw new NotImplementedException();
+    }
+
+    public Token[,] GetCurrentState()
+    {
+        return currentState;
     }
 }
