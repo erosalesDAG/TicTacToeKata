@@ -17,4 +17,18 @@ public class BoardShould
             { Token.Empty, Token.Empty, Token.Empty }
         });
     }
+
+
+    [Test]
+    public void PlaceOneTokenOnEmptyBoard()
+    {
+        var board = new Board();
+        var result = board.PlaceToken(Token.X, 0, 0);
+        result.Should().BeEquivalentTo(new[,]
+        {
+            { Token.X, Token.Empty, Token.Empty },
+            { Token.Empty, Token.Empty, Token.Empty },
+            { Token.Empty, Token.Empty, Token.Empty }
+        });
+    }
 }
