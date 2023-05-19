@@ -15,9 +15,9 @@ public class Board
         ;
     }
 
-    public void PlaceToken(Token token, int i, int i1)
+    public void PlaceToken(Token token, int x, int y)
     {
-        currentState[i,i1] = token;
+        currentState[x,y] = token;
     }
 
     public Token[,] GetCurrentState()
