@@ -6,7 +6,7 @@ namespace TicTacToe.Tests;
 public class BoardShould
 {
     [Test]
-    public void CreateEmptyBoard()
+    public void CreateEmptyBoardOnStart()
     {
         var result = new Board().GetCurrentState();
 
@@ -17,7 +17,6 @@ public class BoardShould
             { Token.Empty, Token.Empty, Token.Empty }
         });
     }
-
 
     [Test]
     public void PlaceOneTokenOnEmptyBoard()
