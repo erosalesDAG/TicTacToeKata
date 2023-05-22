@@ -4,9 +4,8 @@ using TicTacToe.Console;
 
 namespace TicTacToe.Tests
 {
-    public class TicTacToeShould
+    public class GameShould
     {
-        private readonly BoardShould _boardShould = new BoardShould();
 
         [SetUp]
         public void Setup()
