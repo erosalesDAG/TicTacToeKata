@@ -34,9 +34,9 @@ public class Game
     public string GetCurrentResult()
     {
         var boardCurrentState = board.GetCurrentState();
-        if (TokenWinsByTakingFirstColumn(lastToken) ||
-            TokenWinsByTakingSecondColumn(lastToken) ||
-            TokenWinsByTakingThirdColumn(lastToken))
+        if (TokenWinsByTakingColumn(0) ||
+            TokenWinsByTakingColumn(1) ||
+            TokenWinsByTakingColumn(2))
         {
             return $"{lastToken} wins.";
         }
@@ -44,21 +44,9 @@ public class Game
         return "";
     }
 
-    private bool TokenWinsByTakingFirstColumn(Token token)
+    private bool TokenWinsByTakingColumn(int column)
     {
-        return board.TokenAt(new Coordinates(0, 0)) == token && board.TokenAt(new Coordinates(1, 0)) == token &&
-               board.TokenAt(new Coordinates(2, 0)) == token;
-    }
-
-    private bool TokenWinsByTakingSecondColumn(Token token)
-    {
-        return board.TokenAt(new Coordinates(0, 1)) == token && board.TokenAt(new Coordinates(1, 1)) == token &&
-               board.TokenAt(new Coordinates(2, 1)) == token;
-    }
-
-    private bool TokenWinsByTakingThirdColumn(Token token)
-    {
-        return board.TokenAt(new Coordinates(0, 2)) == token && board.TokenAt(new Coordinates(1, 2)) == token &&
-               board.TokenAt(new Coordinates(2, 2)) == token;
+        return board.TokenAt(new Coordinates(0, column)) == lastToken && board.TokenAt(new Coordinates(1, column)) == lastToken &&
+               board.TokenAt(new Coordinates(2, column)) == lastToken;
     }
 }
