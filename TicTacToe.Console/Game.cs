@@ -33,10 +33,7 @@ public class Game
 
     public string GetCurrentResult()
     {
-        var boardCurrentState = board.GetCurrentState();
-        if (TokenWinsByTakingColumn(0) ||
-            TokenWinsByTakingColumn(1) ||
-            TokenWinsByTakingColumn(2))
+        if (TokenWinsByTakingColumn(0) || TokenWinsByTakingColumn(1) || TokenWinsByTakingColumn(2))
         {
             return $"{lastToken} wins.";
         }
@@ -46,7 +43,8 @@ public class Game
 
     private bool TokenWinsByTakingColumn(int column)
     {
-        return board.TokenAt(new Coordinates(0, column)) == lastToken && board.TokenAt(new Coordinates(1, column)) == lastToken &&
+        return board.TokenAt(new Coordinates(0, column)) == lastToken &&
+               board.TokenAt(new Coordinates(1, column)) == lastToken &&
                board.TokenAt(new Coordinates(2, column)) == lastToken;
     }
 }
