@@ -38,6 +38,11 @@ public class Game
         {
             return "X wins.";
         }
+        if (board.GetCurrentState()[0, 1] == Token.X && board.GetCurrentState()[1, 1] == Token.X &&
+            board.GetCurrentState()[2, 1] == Token.X)
+        {
+            return "X wins.";
+        }
 
         return "";
     }
