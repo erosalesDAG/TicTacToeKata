@@ -65,5 +65,21 @@ namespace TicTacToe.Tests
 
             result.Should().BeEquivalentTo("X wins.");
         }
+
+        [Test]
+        public void GetWinnerWhenThirdColumnHasBeenTakenByTokenX()
+        {
+            var game = new Game();
+
+            game.PlayTurn(Token.X, new Coordinates(0, 2));
+            game.PlayTurn(Token.O, new Coordinates(0, 0));
+            game.PlayTurn(Token.X, new Coordinates(1, 2));
+            game.PlayTurn(Token.O, new Coordinates(1, 1));
+            game.PlayTurn(Token.X, new Coordinates(2, 2));
+
+            var result = game.GetCurrentResult();
+
+            result.Should().BeEquivalentTo("X wins.");
+        }
     }
 }
