@@ -47,4 +47,13 @@ public class BoardShould
 
         result.Should().Throw<ArgumentOutOfRangeException>();
     }
+
+    [Test]
+    public void FailToPlaceTokenInAlreadyUsedSpot()
+    {
+        board.PlaceToken(Token.X,new Coordinates(0,0));
+        var result = () => board.PlaceToken(Token.X,new Coordinates(0,0));
+
+        result.Should().Throw<InvalidOperationException>();
+    }
 }
