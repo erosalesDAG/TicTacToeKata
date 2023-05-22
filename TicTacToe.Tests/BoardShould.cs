@@ -5,10 +5,18 @@ namespace TicTacToe.Tests;
 
 public class BoardShould
 {
+    private Board board;
+
+    [SetUp]
+    public void SetUp()
+    {
+        board = new Board();
+    }
+
     [Test]
     public void CreateEmptyBoardOnStart()
     {
-        var result = new Board().GetCurrentState();
+        var result = board.GetCurrentState();
 
         result.Should().BeEquivalentTo(new[,]
         {
@@ -21,8 +29,6 @@ public class BoardShould
     [Test]
     public void PlaceOneTokenOnEmptyBoard()
     {
-        var board = new Board();
-
         board.PlaceToken(Token.X, new Coordinates(0, 0));
         var result = board.GetCurrentState();
 
@@ -37,8 +43,6 @@ public class BoardShould
     [Test]
     public void FailToPlaceTokenOutOfBoundaries()
     {
-        var board = new Board();
-
         var result = () => board.PlaceToken(Token.X, new Coordinates(7, 5));
 
         result.Should().Throw<ArgumentOutOfRangeException>();
