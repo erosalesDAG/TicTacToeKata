@@ -22,8 +22,10 @@ public class BoardShould
     public void PlaceOneTokenOnEmptyBoard()
     {
         var board = new Board();
+
         board.PlaceToken(Token.X, new Coordinates(0, 0));
         var result = board.GetCurrentState();
+
         result.Should().BeEquivalentTo(new[,]
         {
             { Token.X, Token.Empty, Token.Empty },
@@ -36,7 +38,9 @@ public class BoardShould
     public void FailToPlaceTokenOutOfBoundaries()
     {
         var board = new Board();
+
         var result = () => board.PlaceToken(Token.X, new Coordinates(7, 5));
+
         result.Should().Throw<ArgumentOutOfRangeException>();
     }
 }
