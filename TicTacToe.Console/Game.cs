@@ -43,10 +43,10 @@ public class Game
         return "";
     }
 
-    private static bool HasTokenXTakenThirdColumn(Token[,] boardCurrentState)
+    private static bool HasTokenXTakenFirstColumn(Token[,] boardCurrentState)
     {
-        return boardCurrentState[0, 2] == Token.X && boardCurrentState[1, 2] == Token.X &&
-               boardCurrentState[2, 2] == Token.X;
+        return boardCurrentState[0, 0] == Token.X && boardCurrentState[1, 0] == Token.X &&
+               boardCurrentState[2, 0] == Token.X;
     }
 
     private static bool HasTokenXTakenSecondColumn(Token[,] boardCurrentState)
@@ -55,9 +55,9 @@ public class Game
                boardCurrentState[2, 1] == Token.X;
     }
 
-    private static bool HasTokenXTakenFirstColumn(Token[,] boardCurrentState)
+    private static bool HasTokenXTakenThirdColumn(Token[,] boardCurrentState)
     {
-        return boardCurrentState[0, 0] == Token.X && boardCurrentState[1, 0] == Token.X &&
-               boardCurrentState[2, 0] == Token.X;
+        return boardCurrentState[0, 2] == Token.X && boardCurrentState[1, 2] == Token.X &&
+               boardCurrentState[2, 2] == Token.X;
     }
 }
