@@ -17,6 +17,7 @@ public class Board
 
     public void PlaceToken(Token token, int x, int y)
     {
+        if (x > currentState.GetLength(0) || y > currentState.GetLength(1)) throw new ArgumentOutOfRangeException();
         currentState[x,y] = token;
     }
 
