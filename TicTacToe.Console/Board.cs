@@ -26,4 +26,9 @@ public class Board
     {
         return currentState;
     }
+
+    public Token TokenAt(Coordinates coordinates)
+    {
+        return currentState[coordinates.X,coordinates.Y];
+    }
 }

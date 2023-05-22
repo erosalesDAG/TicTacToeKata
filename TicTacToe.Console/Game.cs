@@ -34,30 +34,31 @@ public class Game
     public string GetCurrentResult()
     {
         var boardCurrentState = board.GetCurrentState();
-        if (TokenWinsByTakingFirstColumn(boardCurrentState, lastToken) || TokenWinsByTakingSecondColumn(boardCurrentState, lastToken) ||
-            TokenWinsByTakingThirdColumn(boardCurrentState, lastToken))
+        if (TokenWinsByTakingFirstColumn(lastToken) ||
+            TokenWinsByTakingSecondColumn(lastToken) ||
+            TokenWinsByTakingThirdColumn(lastToken))
         {
-            return $"{lastToken.ToString()} wins.";
+            return $"{lastToken} wins.";
         }
 
         return "";
     }
 
-    private static bool TokenWinsByTakingFirstColumn(Token[,] boardCurrentState, Token token)
+    private bool TokenWinsByTakingFirstColumn(Token token)
     {
-        return boardCurrentState[0, 0] == token && boardCurrentState[1, 0] == token &&
-               boardCurrentState[2, 0] == token;
+        return board.TokenAt(new Coordinates(0, 0)) == token && board.TokenAt(new Coordinates(1, 0)) == token &&
+               board.TokenAt(new Coordinates(2, 0)) == token;
     }
 
-    private static bool TokenWinsByTakingSecondColumn(Token[,] boardCurrentState, Token token)
+    private bool TokenWinsByTakingSecondColumn(Token token)
     {
-        return boardCurrentState[0, 1] == token && boardCurrentState[1, 1] == token &&
-               boardCurrentState[2, 1] == token;
+        return board.TokenAt(new Coordinates(0, 1)) == token && board.TokenAt(new Coordinates(1, 1)) == token &&
+               board.TokenAt(new Coordinates(2, 1)) == token;
     }
 
-    private static bool TokenWinsByTakingThirdColumn(Token[,] boardCurrentState, Token token)
+    private bool TokenWinsByTakingThirdColumn(Token token)
     {
-        return boardCurrentState[0, 2] == token && boardCurrentState[1, 2] == token &&
-               boardCurrentState[2, 2] == token;
+        return board.TokenAt(new Coordinates(0, 2)) == token && board.TokenAt(new Coordinates(1, 2)) == token &&
+               board.TokenAt(new Coordinates(2, 2)) == token;
     }
 }
