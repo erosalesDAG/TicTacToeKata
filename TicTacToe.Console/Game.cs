@@ -33,18 +33,19 @@ public class Game
 
     public string GetCurrentResult()
     {
-        if (board.GetCurrentState()[0, 0] == Token.X && board.GetCurrentState()[1, 0] == Token.X &&
-            board.GetCurrentState()[2, 0] == Token.X)
+        var boardCurrentState = board.GetCurrentState();
+        if (boardCurrentState[0, 0] == Token.X && boardCurrentState[1, 0] == Token.X &&
+            boardCurrentState[2, 0] == Token.X)
         {
             return "X wins.";
         }
-        if (board.GetCurrentState()[0, 1] == Token.X && board.GetCurrentState()[1, 1] == Token.X &&
-            board.GetCurrentState()[2, 1] == Token.X)
+        if (boardCurrentState[0, 1] == Token.X && boardCurrentState[1, 1] == Token.X &&
+            boardCurrentState[2, 1] == Token.X)
         {
             return "X wins.";
         }
-        if (board.GetCurrentState()[0, 2] == Token.X && board.GetCurrentState()[1, 2] == Token.X &&
-            board.GetCurrentState()[2, 2] == Token.X)
+        if (boardCurrentState[0, 2] == Token.X && boardCurrentState[1, 2] == Token.X &&
+            boardCurrentState[2, 2] == Token.X)
         {
             return "X wins.";
         }
