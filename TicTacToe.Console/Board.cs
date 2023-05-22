@@ -15,10 +15,10 @@ public class Board
         ;
     }
 
-    public void PlaceToken(Token token, int x, int y)
+    public void PlaceToken(Token token, Coordinates coordinates)
     {
-        if (x > currentState.GetLength(0) || y > currentState.GetLength(1)) throw new ArgumentOutOfRangeException();
-        currentState[x,y] = token;
+        if (coordinates.X > currentState.GetLength(0) || coordinates.Y > currentState.GetLength(1)) throw new ArgumentOutOfRangeException();
+        currentState[coordinates.X,coordinates.Y] = token;
     }
 
     public Token[,] GetCurrentState()
