@@ -17,7 +17,7 @@ namespace TicTacToe.Tests
         {
             var game = new Game();
 
-            var result = () => game.PlayTurn(Token.O);
+            var result = () => game.PlayTurn(Token.O, new Coordinates(0,0));
 
             result.Should().Throw<InvalidOperationException>();
         }
@@ -26,9 +26,9 @@ namespace TicTacToe.Tests
         public void FailIfPlayerPlaysTwice()
         {
             var game = new Game();
-            game.PlayTurn(Token.X);
+            game.PlayTurn(Token.X, new Coordinates(0, 0));
 
-            var result = () => game.PlayTurn(Token.X);
+            var result = () => game.PlayTurn(Token.X, new Coordinates(0, 1));
 
             result.Should().Throw<InvalidOperationException>();
         }
@@ -39,15 +39,15 @@ namespace TicTacToe.Tests
         {
             var game = new Game();
 
-            game.PlayTurn(Token.X);
-            game.PlayTurn(Token.O);
-            game.PlayTurn(Token.X);
-            game.PlayTurn(Token.O);
-            game.PlayTurn(Token.X);
+            game.PlayTurn(Token.X, new Coordinates(0, 0));
+            game.PlayTurn(Token.O, new Coordinates(0, 1));
+            game.PlayTurn(Token.X, new Coordinates(1, 0));
+            game.PlayTurn(Token.O, new Coordinates(1, 1));
+            game.PlayTurn(Token.X, new Coordinates(2, 0));
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins");
+            result.Should().BeEquivalentTo("X wins.");
         }
     }
 }

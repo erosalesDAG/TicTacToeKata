@@ -3,16 +3,18 @@ namespace TicTacToe.Console;
 public class Game
 {
     private Token lastToken;
+    private Board board;
 
     public Game()
     {
         lastToken = Token.Empty;
+        board = new Board();
     }
 
-    public void PlayTurn(Token token)
+    public void PlayTurn(Token token, Coordinates coordinates)
     {
         ValidateTurnCanBePlayed(token);
-
+        board.PlaceToken(token, coordinates);
         lastToken = token;
     }
 
@@ -29,8 +31,14 @@ public class Game
         }
     }
 
-    public object GetCurrentResult()
+    public string GetCurrentResult()
     {
-        throw new NotImplementedException();
+        if (board.GetCurrentState()[0, 0] == Token.X && board.GetCurrentState()[1, 0] == Token.X &&
+            board.GetCurrentState()[2, 0] == Token.X)
+        {
+            return "X wins.";
+        }
+
+        return "";
     }
 }
