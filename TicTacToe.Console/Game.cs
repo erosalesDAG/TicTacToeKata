@@ -28,4 +28,9 @@ public class Game
             throw new InvalidOperationException();
         }
     }
+
+    public object GetCurrentResult()
+    {
+        throw new NotImplementedException();
+    }
 }

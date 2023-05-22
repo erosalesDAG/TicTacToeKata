@@ -32,5 +32,22 @@ namespace TicTacToe.Tests
 
             result.Should().Throw<InvalidOperationException>();
         }
+
+
+        [Test]
+        public void GetWinnerWhenFirstColumnHasBeenTakenByTokenX()
+        {
+            var game = new Game();
+
+            game.PlayTurn(Token.X);
+            game.PlayTurn(Token.O);
+            game.PlayTurn(Token.X);
+            game.PlayTurn(Token.O);
+            game.PlayTurn(Token.X);
+
+            var result = game.GetCurrentResult();
+
+            result.Should().BeEquivalentTo("X wins");
+        }
     }
 }
