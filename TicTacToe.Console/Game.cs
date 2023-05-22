@@ -35,7 +35,7 @@ public class Game
     {
         var boardCurrentState = board.GetCurrentState();
         if (HasTokenXTakenFirstColumn(boardCurrentState, lastToken) || HasTokenXTakenSecondColumn(boardCurrentState, lastToken) ||
-            HasTokenXTakenThirdColumn(boardCurrentState))
+            HasTokenXTakenThirdColumn(boardCurrentState, lastToken))
         {
             return $"{lastToken.ToString()} wins.";
         }
@@ -55,9 +55,9 @@ public class Game
                boardCurrentState[2, 1] == token;
     }
 
-    private static bool HasTokenXTakenThirdColumn(Token[,] boardCurrentState)
+    private static bool HasTokenXTakenThirdColumn(Token[,] boardCurrentState, Token token)
     {
-        return boardCurrentState[0, 2] == Token.X && boardCurrentState[1, 2] == Token.X &&
-               boardCurrentState[2, 2] == Token.X;
+        return boardCurrentState[0, 2] == token && boardCurrentState[1, 2] == token &&
+               boardCurrentState[2, 2] == token;
     }
 }
