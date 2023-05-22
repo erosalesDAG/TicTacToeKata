@@ -6,16 +6,17 @@ namespace TicTacToe.Tests
 {
     public class GameShould
     {
+        private Game game;
+
         [SetUp]
         public void Setup()
         {
+            game = new Game();
         }
 
         [Test]
         public void FailIfFirstPlayerIsO()
         {
-            var game = new Game();
-
             var result = () => game.PlayTurn(Token.O, new Coordinates(0, 0));
 
             result.Should().Throw<InvalidOperationException>();
@@ -24,7 +25,6 @@ namespace TicTacToe.Tests
         [Test]
         public void FailIfPlayerPlaysTwice()
         {
-            var game = new Game();
             game.PlayTurn(Token.X, new Coordinates(0, 0));
 
             var result = () => game.PlayTurn(Token.X, new Coordinates(0, 1));
@@ -36,8 +36,6 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenFirstColumnHasBeenTakenByTokenX()
         {
-            var game = new Game();
-
             game.PlayTurn(Token.X, new Coordinates(0, 0));
             game.PlayTurn(Token.O, new Coordinates(0, 1));
             game.PlayTurn(Token.X, new Coordinates(1, 0));
@@ -52,8 +50,6 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenSecondColumnHasBeenTakenByTokenX()
         {
-            var game = new Game();
-
             game.PlayTurn(Token.X, new Coordinates(0, 1));
             game.PlayTurn(Token.O, new Coordinates(0, 0));
             game.PlayTurn(Token.X, new Coordinates(1, 1));
@@ -68,8 +64,6 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenThirdColumnHasBeenTakenByTokenX()
         {
-            var game = new Game();
-
             game.PlayTurn(Token.X, new Coordinates(0, 2));
             game.PlayTurn(Token.O, new Coordinates(0, 0));
             game.PlayTurn(Token.X, new Coordinates(1, 2));
@@ -84,8 +78,6 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenFirstColumnHasBeenTakenByTokenO()
         {
-            var game = new Game();
-
             game.PlayTurn(Token.X, new Coordinates(0, 1));
             game.PlayTurn(Token.O, new Coordinates(0, 0));
             game.PlayTurn(Token.X, new Coordinates(1, 1));
@@ -101,8 +93,6 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenSecondColumnHasBeenTakenByTokenO()
         {
-            var game = new Game();
-
             game.PlayTurn(Token.X, new Coordinates(0, 0));
             game.PlayTurn(Token.O, new Coordinates(0, 1));
             game.PlayTurn(Token.X, new Coordinates(1, 0));
@@ -118,8 +108,6 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenThirdColumnHasBeenTakenByTokenO()
         {
-            var game = new Game();
-
             game.PlayTurn(Token.X, new Coordinates(0, 0));
             game.PlayTurn(Token.O, new Coordinates(0, 2));
             game.PlayTurn(Token.X, new Coordinates(1, 0));
