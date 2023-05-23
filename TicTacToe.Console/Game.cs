@@ -38,14 +38,19 @@ public class Game
             return $"{lastToken} wins.";
         }
 
-        if (board.TokenAt(new Coordinates(0, 0)) == lastToken &&
-            board.TokenAt(new Coordinates(0, 1)) == lastToken &&
-            board.TokenAt(new Coordinates(0, 2)) == lastToken)
+        if (TokenWinsByTakingRow(0)||TokenWinsByTakingRow(1))
         {
             return $"{lastToken} wins.";
         }
 
         return "";
+    }
+
+    private bool TokenWinsByTakingRow(int row)
+    {
+        return board.TokenAt(new Coordinates(row, 0)) == lastToken &&
+               board.TokenAt(new Coordinates(row, 1)) == lastToken &&
+               board.TokenAt(new Coordinates(row, 2)) == lastToken;
     }
 
     private bool TokenWinsByTakingColumn(int column)
