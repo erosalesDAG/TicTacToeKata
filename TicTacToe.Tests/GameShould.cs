@@ -119,5 +119,20 @@ namespace TicTacToe.Tests
 
             result.Should().BeEquivalentTo("O wins.");
         }
+
+
+        [Test]
+        public void GetWinnerWhenFirstRowHasBeenTakenByToken()
+        {
+            game.PlayTurn(Token.X, new Coordinates(0, 0));
+            game.PlayTurn(Token.O, new Coordinates(1,2));
+            game.PlayTurn(Token.X, new Coordinates(0, 1));
+            game.PlayTurn(Token.O, new Coordinates(1, 1));
+            game.PlayTurn(Token.X, new Coordinates(0,2));
+
+            var result = game.GetCurrentResult();
+
+            result.Should().BeEquivalentTo("X wins.");
+        }
     }
 }
