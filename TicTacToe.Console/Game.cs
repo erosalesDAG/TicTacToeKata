@@ -38,7 +38,7 @@ public class Game
             return $"{lastToken} wins.";
         }
 
-        if (TokenWinsByTakingRow(0)||TokenWinsByTakingRow(1))
+        if (TokenWinsByTakingRow(0) || TokenWinsByTakingRow(1) || TokenWinsByTakingRow(2))
         {
             return $"{lastToken} wins.";
         }
