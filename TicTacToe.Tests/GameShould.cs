@@ -185,6 +185,7 @@ namespace TicTacToe.Tests
             game.PlayTurn(Token.O, new Coordinates(0, 1));
             game.PlayTurn(Token.X, new Coordinates(1, 1));
             game.PlayTurn(Token.O, new Coordinates(1, 2));
+            game.PlayTurn(Token.X, new Coordinates(2,0));
 
             var result = game.GetCurrentResult();
 
