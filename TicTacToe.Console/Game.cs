@@ -43,6 +43,12 @@ public class Game
             return $"{lastToken} wins.";
         }
 
+        if (board.TokenAt(new Coordinates(0, 0)) == lastToken && board.TokenAt(new Coordinates(1, 1)) == lastToken &&
+            board.TokenAt(new Coordinates(2, 2)) == lastToken)
+        {
+            return $"{lastToken} wins.";
+        }
+
         return "";
     }
 
