@@ -176,5 +176,19 @@ namespace TicTacToe.Tests
 
             result.Should().BeEquivalentTo("X wins.");
         }
+
+
+        [Test]
+        public void GetWinnerWhenDiagonalTopRightToBottomLeftHasBeenTaken()
+        {
+            game.PlayTurn(Token.X, new Coordinates(0, 2));
+            game.PlayTurn(Token.O, new Coordinates(0, 1));
+            game.PlayTurn(Token.X, new Coordinates(1, 1));
+            game.PlayTurn(Token.O, new Coordinates(1, 2));
+
+            var result = game.GetCurrentResult();
+
+            result.Should().BeEquivalentTo("X wins.");
+        }
     }
 }
