@@ -2,7 +2,7 @@ namespace TicTacToe.Console;
 
 public class Board
 {
-    private Token[,] currentState;
+    private readonly Token[,] currentState;
 
     public Board()
     {
