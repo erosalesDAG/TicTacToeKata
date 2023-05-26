@@ -48,7 +48,7 @@ public class Game
             return $"{lastToken} wins.";
         }
 
-        return "";
+        return "Draw.";
     }
 
     private bool TokenWinsByTakingRow(int row)
