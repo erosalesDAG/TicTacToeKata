@@ -191,5 +191,24 @@ namespace TicTacToe.Tests
 
             result.Should().BeEquivalentTo("X wins.");
         }
+
+
+        [Test]
+        public void GetDrawWhenFullBoardButNoTokenWon()
+        {
+            game.PlayTurn(Token.X, new Coordinates(0, 0));
+            game.PlayTurn(Token.O, new Coordinates(0, 1));
+            game.PlayTurn(Token.X, new Coordinates(0, 2));
+            game.PlayTurn(Token.O, new Coordinates(1, 0));
+            game.PlayTurn(Token.X, new Coordinates(1, 1));
+            game.PlayTurn(Token.O, new Coordinates(1, 2));
+            game.PlayTurn(Token.X, new Coordinates(2, 0));
+            game.PlayTurn(Token.O, new Coordinates(2, 2));
+            game.PlayTurn(Token.X, new Coordinates(2, 1));
+
+            var result = game.GetCurrentResult();
+
+            result.Should().BeEquivalentTo("Draw.");
+        } 
     }
 }
