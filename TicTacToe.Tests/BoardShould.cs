@@ -16,14 +16,9 @@ public class BoardShould
     [Test]
     public void CreateEmptyBoardOnStart()
     {
-        var result = board.GetCurrentState();
+        var result = board.IsEmpty();
 
-        result.Should().BeEquivalentTo(new[,]
-        {
-            { Token.Empty, Token.Empty, Token.Empty },
-            { Token.Empty, Token.Empty, Token.Empty },
-            { Token.Empty, Token.Empty, Token.Empty }
-        });
+        result.Should().BeTrue();
     }
 
     [Test]

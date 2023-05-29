@@ -2,18 +2,10 @@ namespace TicTacToe.Console;
 
 public class Board
 {
-    private readonly Token[,] currentState;
     private readonly Dictionary<Coordinates, Token> currentBoard;
 
     public Board()
     {
-        currentState = new Token[,]
-        {
-            { Token.Empty, Token.Empty, Token.Empty },
-            { Token.Empty, Token.Empty, Token.Empty },
-            { Token.Empty, Token.Empty, Token.Empty }
-        };
-
         currentBoard = new Dictionary<Coordinates, Token>();
     }
 
@@ -23,11 +15,11 @@ public class Board
         currentBoard.Add(coordinates, token);
     }
 
-    public Token[,] GetCurrentState()
-    {
-        return currentState;
-    }
-
     public Token TokenAt(Coordinates coordinates) =>
         currentBoard.ContainsKey(coordinates) ? currentBoard[coordinates] : Token.Empty;
+
+    public bool IsEmpty()
+    {
+        return currentBoard.Count == 0;
+    }
 }
