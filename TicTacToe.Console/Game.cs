@@ -26,7 +26,7 @@ public class Game
             return currentToken == Token.X ? GameResults.XWins : GameResults.OWins;
         }
 
-        return GameResults.Draw;
+        return board.IsFull() ? GameResults.Draw : GameResults.GameNotFinished;
     }
 
     private bool TokenWinsByTakingDiagonal()

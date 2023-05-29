@@ -22,4 +22,9 @@ public class Board
     {
         return currentBoard.Count == 0;
     }
+
+    public bool IsFull()
+    {
+        throw new NotImplementedException();
+    }
 }

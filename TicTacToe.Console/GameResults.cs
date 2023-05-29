@@ -4,5 +4,6 @@ public enum GameResults
 {
     Draw,
     XWins,
-    OWins
+    OWins,
+    GameNotFinished
 }
