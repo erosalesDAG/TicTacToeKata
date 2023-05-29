@@ -29,30 +29,17 @@ public class BoardShould
     [Test]
     public void PlaceOneTokenOnEmptyBoard()
     {
-        board.PlaceToken(Token.X, new Coordinates(0, 0));
-        var result = board.GetCurrentState();
+        board.PlaceToken(Coordinates.TopLeft, Token.X);
+        var result = board.TokenAt(Coordinates.TopLeft);
 
-        result.Should().BeEquivalentTo(new[,]
-        {
-            { Token.X, Token.Empty, Token.Empty },
-            { Token.Empty, Token.Empty, Token.Empty },
-            { Token.Empty, Token.Empty, Token.Empty }
-        });
+        result.Should().Be(Token.X);
     }
-
-    [Test]
-    public void FailToPlaceTokenOutOfBoundaries()
-    {
-        var result = () => board.PlaceToken(Token.X, new Coordinates(7, 5));
-
-        result.Should().Throw<ArgumentOutOfRangeException>();
-    }
-
+    
     [Test]
     public void FailToPlaceTokenInAlreadyUsedSpot()
     {
-        board.PlaceToken(Token.X,new Coordinates(0,0));
-        var result = () => board.PlaceToken(Token.X,new Coordinates(0,0));
+        board.PlaceToken(Coordinates.TopLeft, Token.X);
+        var result = () => board.PlaceToken(Coordinates.TopLeft, Token.X);
 
         result.Should().Throw<InvalidOperationException>();
     }

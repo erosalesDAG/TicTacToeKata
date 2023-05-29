@@ -3,23 +3,24 @@ namespace TicTacToe.Console;
 public class Board
 {
     private readonly Token[,] currentState;
+    private readonly Dictionary<Coordinates, Token> currentBoard;
 
     public Board()
     {
         currentState = new Token[,]
-            {
-                { Token.Empty, Token.Empty, Token.Empty },
-                { Token.Empty, Token.Empty, Token.Empty },
-                { Token.Empty, Token.Empty, Token.Empty }
-            }
-        ;
+        {
+            { Token.Empty, Token.Empty, Token.Empty },
+            { Token.Empty, Token.Empty, Token.Empty },
+            { Token.Empty, Token.Empty, Token.Empty }
+        };
+
+        currentBoard = new Dictionary<Coordinates, Token>();
     }
 
-    public void PlaceToken(Token token, Coordinates coordinates)
+    public void PlaceToken(Coordinates coordinates, Token token)
     {
-        if (coordinates.X > currentState.GetLength(0) || coordinates.Y > currentState.GetLength(1)) throw new ArgumentOutOfRangeException();
-        if (currentState[coordinates.X, coordinates.Y] != Token.Empty) throw new InvalidOperationException();
-        currentState[coordinates.X,coordinates.Y] = token;
+        if (currentBoard.ContainsKey(coordinates)) throw new InvalidOperationException();
+        currentBoard.Add(coordinates, token);
     }
 
     public Token[,] GetCurrentState()
@@ -27,8 +28,6 @@ public class Board
         return currentState;
     }
 
-    public Token TokenAt(Coordinates coordinates)
-    {
-        return currentState[coordinates.X,coordinates.Y];
-    }
+    public Token TokenAt(Coordinates coordinates) =>
+        currentBoard.ContainsKey(coordinates) ? currentBoard[coordinates] : Token.Empty;
 }

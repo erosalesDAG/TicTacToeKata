@@ -1,13 +1,14 @@
 namespace TicTacToe.Console;
 
-public class Coordinates
+public enum Coordinates
 {
-    public int X { get; }
-    public int Y { get; }
-
-    public Coordinates(int x, int y)
-    {
-        X = x;
-        Y = y;
-    }
+    TopLeft,
+    TopCenter,
+    TopRight,
+    MiddleLeft,
+    MiddleCenter,
+    MiddleRight,
+    BottomLeft,
+    BottomCenter,
+    BottomRight
 }

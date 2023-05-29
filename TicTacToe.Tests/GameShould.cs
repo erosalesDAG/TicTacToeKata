@@ -17,11 +17,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenFirstColumnHasBeenTakenByTokenX()
         {
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(1, 0));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(2, 0));
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.MiddleLeft);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.BottomLeft);
 
             var result = game.GetCurrentResult();
 
@@ -31,11 +31,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenSecondColumnHasBeenTakenByTokenX()
         {
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(1, 2));
-            game.PlayTurn(new Coordinates(2, 1));
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.MiddleRight);
+            game.PlayTurn(Coordinates.BottomCenter);
 
             var result = game.GetCurrentResult();
 
@@ -45,11 +45,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenThirdColumnHasBeenTakenByTokenX()
         {
-            game.PlayTurn(new Coordinates(0, 2));
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(1, 2));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(2, 2));
+            game.PlayTurn(Coordinates.TopRight);
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.MiddleRight);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.BottomRight);
 
             var result = game.GetCurrentResult();
 
@@ -59,12 +59,12 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenFirstColumnHasBeenTakenByTokenO()
         {
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(1, 0));
-            game.PlayTurn(new Coordinates(2, 2));
-            game.PlayTurn(new Coordinates(2, 0));
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.MiddleLeft);
+            game.PlayTurn(Coordinates.BottomRight);
+            game.PlayTurn(Coordinates.BottomLeft);
 
             var result = game.GetCurrentResult();
 
@@ -74,12 +74,12 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenSecondColumnHasBeenTakenByTokenO()
         {
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(1, 0));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(2, 0));
-            game.PlayTurn(new Coordinates(2, 1));
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.MiddleLeft);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.BottomLeft);
+            game.PlayTurn(Coordinates.BottomCenter);
 
             var result = game.GetCurrentResult();
 
@@ -89,12 +89,12 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenThirdColumnHasBeenTakenByTokenO()
         {
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(0, 2));
-            game.PlayTurn(new Coordinates(1, 0));
-            game.PlayTurn(new Coordinates(1, 2));
-            game.PlayTurn(new Coordinates(2, 0));
-            game.PlayTurn(new Coordinates(2, 2));
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.TopRight);
+            game.PlayTurn(Coordinates.MiddleLeft);
+            game.PlayTurn(Coordinates.MiddleRight);
+            game.PlayTurn(Coordinates.BottomLeft);
+            game.PlayTurn(Coordinates.BottomRight);
 
             var result = game.GetCurrentResult();
 
@@ -105,11 +105,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenFirstRowHasBeenTakenByToken()
         {
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(1, 2));
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(0, 2));
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.MiddleRight);
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.TopRight);
 
             var result = game.GetCurrentResult();
 
@@ -119,11 +119,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenSecondRowHasBeenTakenByToken()
         {
-            game.PlayTurn(new Coordinates(1, 0));
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(2, 1));
-            game.PlayTurn(new Coordinates(1, 2));
+            game.PlayTurn(Coordinates.MiddleLeft);
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.BottomCenter);
+            game.PlayTurn(Coordinates.MiddleRight);
 
             var result = game.GetCurrentResult();
 
@@ -133,11 +133,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenThirdRowHasBeenTakenByToken()
         {
-            game.PlayTurn(new Coordinates(2, 0));
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(2, 1));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(2, 2));
+            game.PlayTurn(Coordinates.BottomLeft);
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.BottomCenter);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.BottomRight);
 
             var result = game.GetCurrentResult();
 
@@ -147,11 +147,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenDiagonalTopLeftToBottomRightHasBeenTaken()
         {
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(1, 2));
-            game.PlayTurn(new Coordinates(2, 2));
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.MiddleRight);
+            game.PlayTurn(Coordinates.BottomRight);
 
             var result = game.GetCurrentResult();
 
@@ -162,11 +162,11 @@ namespace TicTacToe.Tests
         [Test]
         public void GetWinnerWhenDiagonalTopRightToBottomLeftHasBeenTaken()
         {
-            game.PlayTurn(new Coordinates(0, 2));
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(1, 2));
-            game.PlayTurn(new Coordinates(2,0));
+            game.PlayTurn(Coordinates.TopRight);
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.MiddleRight);
+            game.PlayTurn(Coordinates.BottomLeft);
 
             var result = game.GetCurrentResult();
 
@@ -177,15 +177,15 @@ namespace TicTacToe.Tests
         [Test]
         public void GetDrawWhenFullBoardButNoTokenWon()
         {
-            game.PlayTurn(new Coordinates(0, 0));
-            game.PlayTurn(new Coordinates(0, 1));
-            game.PlayTurn(new Coordinates(0, 2));
-            game.PlayTurn(new Coordinates(1, 0));
-            game.PlayTurn(new Coordinates(1, 1));
-            game.PlayTurn(new Coordinates(2, 0));
-            game.PlayTurn(new Coordinates(2, 1));
-            game.PlayTurn(new Coordinates(2, 2));
-            game.PlayTurn(new Coordinates(1, 2));
+            game.PlayTurn(Coordinates.TopLeft);
+            game.PlayTurn(Coordinates.TopCenter);
+            game.PlayTurn(Coordinates.TopRight);
+            game.PlayTurn(Coordinates.MiddleLeft);
+            game.PlayTurn(Coordinates.MiddleCenter);
+            game.PlayTurn(Coordinates.BottomLeft);
+            game.PlayTurn(Coordinates.BottomCenter);
+            game.PlayTurn(Coordinates.BottomRight);
+            game.PlayTurn(Coordinates.MiddleRight);
 
             var result = game.GetCurrentResult();
 

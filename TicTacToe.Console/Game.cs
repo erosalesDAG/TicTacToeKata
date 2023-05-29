@@ -15,18 +15,18 @@ public class Game
     {
         currentToken = currentToken == Token.X ? Token.O : Token.X;
 
-        board.PlaceToken(currentToken, coordinates);
+        board.PlaceToken(coordinates, currentToken);
     }
 
 
     public string GetCurrentResult()
     {
-        if (TokenWinsByTakingColumn(0) || TokenWinsByTakingColumn(1) || TokenWinsByTakingColumn(2))
+        if (TokenWinsByTakingFirstColumn() || TokenWinsByTakingSecondColumn() || TokenWinsByTakingThirdColumn())
         {
             return $"{currentToken} wins.";
         }
 
-        if (TokenWinsByTakingRow(0) || TokenWinsByTakingRow(1) || TokenWinsByTakingRow(2))
+        if (TokenWinsByTakingFirstRow() || TokenWinsByTakingSecondRow() || TokenWinsByTakingThirdRow())
         {
             return $"{currentToken} wins.";
         }
@@ -39,29 +39,59 @@ public class Game
         return "Draw.";
     }
 
-    private bool TokenWinsByTakingRow(int row)
+    private bool TokenWinsByTakingFirstRow()
     {
-        return board.TokenAt(new Coordinates(row, 0)) == currentToken &&
-               board.TokenAt(new Coordinates(row, 1)) == currentToken &&
-               board.TokenAt(new Coordinates(row, 2)) == currentToken;
+        return board.TokenAt(Coordinates.TopLeft) == currentToken &&
+               board.TokenAt(Coordinates.TopCenter) == currentToken &&
+               board.TokenAt(Coordinates.TopRight) == currentToken;
     }
 
-    private bool TokenWinsByTakingColumn(int column)
+    private bool TokenWinsByTakingSecondRow()
     {
-        return board.TokenAt(new Coordinates(0, column)) == currentToken &&
-               board.TokenAt(new Coordinates(1, column)) == currentToken &&
-               board.TokenAt(new Coordinates(2, column)) == currentToken;
+        return board.TokenAt(Coordinates.MiddleLeft) == currentToken &&
+               board.TokenAt(Coordinates.MiddleCenter) == currentToken &&
+               board.TokenAt(Coordinates.MiddleRight) == currentToken;
+    }
+
+    private bool TokenWinsByTakingThirdRow()
+    {
+        return board.TokenAt(Coordinates.BottomLeft) == currentToken &&
+               board.TokenAt(Coordinates.BottomCenter) == currentToken &&
+               board.TokenAt(Coordinates.BottomRight) == currentToken;
+    }
+
+    private bool TokenWinsByTakingFirstColumn()
+    {
+        return board.TokenAt(Coordinates.TopLeft) == currentToken &&
+               board.TokenAt(Coordinates.MiddleLeft) == currentToken &&
+               board.TokenAt(Coordinates.BottomLeft) == currentToken;
+    }
+
+    private bool TokenWinsByTakingSecondColumn()
+    {
+        return board.TokenAt(Coordinates.TopCenter) == currentToken &&
+               board.TokenAt(Coordinates.MiddleCenter) == currentToken &&
+               board.TokenAt(Coordinates.BottomCenter) == currentToken;
+    }
+
+    private bool TokenWinsByTakingThirdColumn()
+    {
+        return board.TokenAt(Coordinates.TopRight) == currentToken &&
+               board.TokenAt(Coordinates.MiddleRight) == currentToken &&
+               board.TokenAt(Coordinates.BottomRight) == currentToken;
     }
 
     private bool TokenWinsByTakingTopLeftDiagonal()
     {
-        return board.TokenAt(new Coordinates(0, 0)) == currentToken && board.TokenAt(new Coordinates(1, 1)) == currentToken &&
-               board.TokenAt(new Coordinates(2, 2)) == currentToken;
+        return board.TokenAt(Coordinates.TopLeft) == currentToken &&
+               board.TokenAt(Coordinates.MiddleCenter) == currentToken &&
+               board.TokenAt(Coordinates.BottomRight) == currentToken;
     }
 
     private bool TokenWinsByTakingTopRightDiagonal()
     {
-        return board.TokenAt(new Coordinates(0, 2)) == currentToken && board.TokenAt(new Coordinates(1, 1)) == currentToken &&
-               board.TokenAt(new Coordinates(2, 0)) == currentToken;
+        return board.TokenAt(Coordinates.TopRight) == currentToken &&
+               board.TokenAt(Coordinates.MiddleCenter) == currentToken &&
+               board.TokenAt(Coordinates.BottomLeft) == currentToken;
     }
 }
