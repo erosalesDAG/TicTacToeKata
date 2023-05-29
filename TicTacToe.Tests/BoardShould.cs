@@ -38,4 +38,21 @@ public class BoardShould
 
         result.Should().Throw<InvalidOperationException>();
     }
+
+    [Test]
+    public void BeFullWhenAllCoordinatesAreTaken()
+    {
+        board.PlaceToken(Coordinates.TopLeft, Token.X);
+        board.PlaceToken(Coordinates.TopCenter,Token.O);
+        board.PlaceToken(Coordinates.TopRight, Token.X);
+        board.PlaceToken(Coordinates.MiddleLeft, Token.O);
+        board.PlaceToken(Coordinates.MiddleCenter, Token.X);
+        board.PlaceToken(Coordinates.MiddleRight, Token.O);
+        board.PlaceToken(Coordinates.BottomLeft, Token.X);
+        board.PlaceToken(Coordinates.BottomCenter, Token.O);
+        board.PlaceToken(Coordinates.BottomRight, Token.X);
+
+        var result = board.IsFull();
+        result.Should().BeTrue();
+    }
 }
