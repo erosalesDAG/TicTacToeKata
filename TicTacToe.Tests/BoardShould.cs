@@ -48,8 +48,8 @@ public class BoardShould
         board.PlaceToken(Coordinates.MiddleLeft, Token.O);
         board.PlaceToken(Coordinates.MiddleCenter, Token.X);
         board.PlaceToken(Coordinates.MiddleRight, Token.O);
-        board.PlaceToken(Coordinates.BottomLeft, Token.X);
-        board.PlaceToken(Coordinates.BottomCenter, Token.O);
+        board.PlaceToken(Coordinates.BottomCenter, Token.X);
+        board.PlaceToken(Coordinates.BottomLeft, Token.O);
         board.PlaceToken(Coordinates.BottomRight, Token.X);
 
         var result = board.IsFull();

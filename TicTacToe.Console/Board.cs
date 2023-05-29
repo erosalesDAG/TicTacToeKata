@@ -25,6 +25,6 @@ public class Board
 
     public bool IsFull()
     {
-        throw new NotImplementedException();
+        return currentBoard.Count == 9;
     }
 }
