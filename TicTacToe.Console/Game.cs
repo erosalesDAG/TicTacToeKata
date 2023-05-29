@@ -21,22 +21,27 @@ public class Game
 
     public string GetCurrentResult()
     {
-        if (TokenWinsByTakingFirstColumn() || TokenWinsByTakingSecondColumn() || TokenWinsByTakingThirdColumn())
-        {
-            return $"{currentToken} wins.";
-        }
-
-        if (TokenWinsByTakingFirstRow() || TokenWinsByTakingSecondRow() || TokenWinsByTakingThirdRow())
-        {
-            return $"{currentToken} wins.";
-        }
-
-        if (TokenWinsByTakingTopLeftDiagonal() || TokenWinsByTakingTopRightDiagonal())
+        if (TokenWinsByTakingColumn() || TokenWinsByTakingRow() || TokenWinsByTakingDiagonal())
         {
             return $"{currentToken} wins.";
         }
 
         return "Draw.";
+    }
+
+    private bool TokenWinsByTakingDiagonal()
+    {
+        return TokenWinsByTakingTopLeftDiagonal() || TokenWinsByTakingTopRightDiagonal();
+    }
+
+    private bool TokenWinsByTakingRow()
+    {
+        return TokenWinsByTakingFirstRow() || TokenWinsByTakingSecondRow() || TokenWinsByTakingThirdRow();
+    }
+
+    private bool TokenWinsByTakingColumn()
+    {
+        return TokenWinsByTakingFirstColumn() || TokenWinsByTakingSecondColumn() || TokenWinsByTakingThirdColumn();
     }
 
     private bool TokenWinsByTakingFirstRow()
