@@ -19,14 +19,14 @@ public class Game
     }
 
 
-    public string GetCurrentResult()
+    public GameResults GetCurrentResult()
     {
         if (TokenWinsByTakingColumn() || TokenWinsByTakingRow() || TokenWinsByTakingDiagonal())
         {
-            return $"{currentToken} wins.";
+            return currentToken == Token.X ? GameResults.XWins : GameResults.OWins;
         }
 
-        return "Draw.";
+        return GameResults.Draw;
     }
 
     private bool TokenWinsByTakingDiagonal()

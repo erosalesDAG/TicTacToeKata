@@ -25,7 +25,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("O wins.");
+            result.Should().Be(GameResults.OWins);
         }
 
         [Test]
@@ -83,7 +83,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("O wins.");
+            result.Should().Be(GameResults.OWins);
         }
 
         [Test]
@@ -98,7 +98,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("O wins.");
+            result.Should().Be(GameResults.OWins);
         }
 
 
@@ -113,7 +113,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
         [Test]
@@ -127,7 +127,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
         [Test]
@@ -141,7 +141,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
         [Test]
@@ -155,7 +155,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
 
@@ -170,7 +170,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("X wins.");
+            result.Should().Be(GameResults.XWins);
         }
 
 
@@ -189,7 +189,7 @@ namespace TicTacToe.Tests
 
             var result = game.GetCurrentResult();
 
-            result.Should().BeEquivalentTo("Draw.");
+            result.Should().Be(GameResults.Draw);
         } 
     }
 }
