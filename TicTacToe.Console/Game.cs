@@ -7,7 +7,7 @@ public class Game
 
     public Game()
     {
-        currentToken = Token.Empty;
+        currentToken = Token.O;
         board = new Board();
     }
 
